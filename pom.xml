@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>Movie_Searcher_BOT</artifactId>
+    <artifactId>Test_BOT</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>AnonymousTelegramBot</name>
-    <description>AnonymousTelegramBot</description>
+    <name>TikTok_Downloader</name>
+    <description>TikTok_Downloader</description>
 
     <properties>
         <java.version>19</java.version>
@@ -37,7 +37,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
-            <version>3.0.4</version>
+            <version>3.0.2</version>
         </dependency>
 
         <dependency>
@@ -71,11 +71,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.python</groupId>
-            <artifactId>jython-slim</artifactId>
-            <version>2.7.3b1</version>
-        </dependency>
+
     </dependencies>
 
     <build>
