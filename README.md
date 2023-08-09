@@ -1,4 +1,4 @@
-Simple Telegram Bot to download videos from TikTok. 
+A simple Telegram Bot to download videos from TikTok. 
 
 How to use:
 1) Add your bot token and bot username to the file application.properties
