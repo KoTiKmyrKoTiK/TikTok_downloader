@@ -12,7 +12,7 @@ import java.util.Map;
 @Log4j2
 public class TiktokVideoDownloader {
     TiktokLinkFormatter formatter = new TiktokLinkFormatter();
-    String patternLink = "https://tikcdn.io/tiktokdownload/";
+    String patternLink = "https://tikcdn.io/ssstik/";
     String defaultPath = "downloads\\video";
 
     Map<Long, Integer> counts = new DefaultHashMap<>(1);

@@ -1,21 +1,23 @@
 package org.example.formatter;
 
+import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 
 import java.io.IOException;
-
+@Slf4j
 public class TiktokLinkFormatter {
 
     public String format(String link) {
-        return formatLink(link);
+        return getIdFromLink(link);
     }
 
-    private String formatLink(String shareLink) {
-        var downloadLink = "";
+    private String getIdFromLink(String shareLink) {
+        var clearLink = "";
         if (shareLink.matches("https://vm\\.tiktok\\.com/[A-Za-z0-9]+")) {
+            log.info("LINK RESPONDS TO MOBILE DEVICE LINK PATTERN");
             try {
-                downloadLink = makeAndroidLink(shareLink);
+                clearLink = makeAndroidLink(shareLink);
             } catch (IOException e) {
                 throw new RuntimeException("An error has occurred while", e);
             }
@@ -23,12 +25,12 @@ public class TiktokLinkFormatter {
                 || shareLink.matches("https://www\\.tiktok\\.com/@[A-Za-z0-9]+/video/[0-9]+\\?([A-Za-z]+(_[A-Za-z]+)+)=[0-9]+&sender_device=[A-Za-z]+")
                 || shareLink.matches("https://www\\.tiktok\\.com/@([A-Za-z0-9]+(_[A-Za-z0-9]+)+)/video/[0-9]+\\?([A-Za-z]+(_[A-Za-z]+)+)=1&([A-Za-z]+(_[A-Za-z]+)+)=[A-Za-z]+&([A-Za-z]+(_[A-Za-z]+)+)=[0-9]+")
                 || shareLink.matches("https://www\\.tiktok\\.com/@([A-Za-z0-9]+(\\.[A-Za-z0-9]+)+)/video/[0-9]+\\?([A-Za-z]+(_[A-Za-z]+)+)=1&([A-Za-z]+(_[A-Za-z]+)+)=[A-Za-z]+")) {
-            downloadLink = makePCLink(shareLink);
+            clearLink = makePCLink(shareLink);
         } else if (shareLink.matches("https://www\\.tiktok\\.com/@[A-Za-z0-9]+/video/[0-9]+")) {
-            downloadLink = shareLink;
+            clearLink = shareLink;
         }
 
-        return downloadLink.split("/")[downloadLink.split("/").length - 1];
+        return clearLink.split("/")[clearLink.split("/").length - 1];
     }
 
     private String makePCLink(String link) {
@@ -45,14 +47,17 @@ public class TiktokLinkFormatter {
 
         var elements = doc.select("html > head > link").attr("rel", "canonical");
 
+
         String gottenLink = "";
         for (Element element : elements) {
             if (
-                    element.attr("href").matches("https://www\\.tiktok\\.com/@([A-Za-z0-9]+(_[A-Za-z0-9]+)+)/video/[0-9]+")
-                            || element.attr("href").matches("https://www\\.tiktok\\.com/@\\.([A-Za-z0-9]+(/[A-Za-z0-9]+)+)")
-                            || element.attr("href").matches("https://www\\.tiktok\\.com/@[A-Za-z0-9]+/video/[0-9]+")
+//                    element.attr("href").matches("https://www\\.tiktok\\.com/@([A-Za-z0-9]+(_[A-Za-z0-9]+)+)/video/[0-9]+")
+//                            || element.attr("href").matches("https://www\\.tiktok\\.com/@\\.([A-Za-z0-9]+(/[A-Za-z0-9]+)+)")
+//                            || element.attr("href").matches("https://www\\.tiktok\\.com/@[A-Za-z0-9]+/video/[0-9]+")
+                    element.attr("href").matches("https://www\\.tiktok\\.com/@([A-Za-z0-9]+(\\.[A-Za-z0-9]+)+)/video/[0-9]+")
             ) {
                 gottenLink = element.attr("href");
+                System.out.println("GOTTEN LINK:" +gottenLink);
                 break;
             }
         }
