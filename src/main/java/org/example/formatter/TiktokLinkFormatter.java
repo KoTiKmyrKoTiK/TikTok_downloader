@@ -1,13 +1,17 @@
 package org.example.formatter;
 
+
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 @Slf4j
 public class TiktokLinkFormatter {
-
+private final String globalRegex = "https://www.tiktok.com/@[a-zA-Z0-9_@-]+/video/[0-9]+";
     public String format(String link) {
         return getIdFromLink(link);
     }
@@ -50,11 +54,18 @@ public class TiktokLinkFormatter {
 
         String gottenLink = "";
         for (Element element : elements) {
+            Pattern pattern = Pattern.compile(globalRegex);
+            Matcher matcher = pattern.matcher(element.attr("href"));
             if (
+                    matcher.matches()
 //                    element.attr("href").matches("https://www\\.tiktok\\.com/@([A-Za-z0-9]+(_[A-Za-z0-9]+)+)/video/[0-9]+")
 //                            || element.attr("href").matches("https://www\\.tiktok\\.com/@\\.([A-Za-z0-9]+(/[A-Za-z0-9]+)+)")
-//                            || element.attr("href").matches("https://www\\.tiktok\\.com/@[A-Za-z0-9]+/video/[0-9]+")
-                    element.attr("href").matches("https://www\\.tiktok\\.com/@([A-Za-z0-9]+(\\.[A-Za-z0-9]+)+)/video/[0-9]+")
+//                            || element.attr("href").matches("https://www/tiktok/.com/[a-zA-Z0-9_-]/video/[0-9]+")
+//                            || element.attr("href").matches("https://www\\.tiktok\\.com/@([A-Za-z0-9]+(\\.[A-Za-z0-9]+)+)/video/[0-9]+")
+//                            ||  element.attr("href").matches("https://www\\.tiktok\\.com/[a-zA-Z0-9!@#$%^&*()_+]/video/[0-9]+")
+//                            ||  element.attr("href").matches("https://www\\.tiktok\\.com/[a-zA-Z\\W]/video/[0-9]+")
+//                            ||  element.attr("href").matches("https://www\\.tiktok\\.com/@[A-Za-z0-9]+_[A-Za-z0-9]+_/video/[0-9]+")
+
             ) {
                 gottenLink = element.attr("href");
                 System.out.println("GOTTEN LINK:" +gottenLink);

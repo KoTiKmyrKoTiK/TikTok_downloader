@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94da2bdf-6bca-4b5f-938f-98b6aa2ecd20" name="Changes" comment="Tiktok downloader(no photo downloading)">
+    <list default="true" id="94da2bdf-6bca-4b5f-938f-98b6aa2ecd20" name="Changes" comment="Tiktok downloader(no photo downloading) (ANOTHER SERVICE USAGE)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/downloader/TiktokVideoDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/downloader/TiktokVideoDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/formatter/TiktokLinkFormatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/formatter/TiktokLinkFormatter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +149,8 @@
       <workItem from="1690455222721" duration="174000" />
       <workItem from="1691573191937" duration="2556000" />
       <workItem from="1691576908295" duration="1391000" />
-      <workItem from="1691603476759" duration="1836000" />
+      <workItem from="1691603476759" duration="6909000" />
+      <workItem from="1691750204432" duration="3807000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1689404299234</created>
@@ -167,16 +166,35 @@
       <option name="project" value="LOCAL" />
       <updated>1690028779689</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Tiktok downloader(no photo downloading) (ANOTHER SERVICE USAGE)">
+      <created>1691606849281</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1691606849281</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="Tiktok downloader(no photo downloading)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tiktok downloader(no photo downloading)" />
+    <MESSAGE value="Tiktok downloader(no photo downloading) (ANOTHER SERVICE USAGE)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tiktok downloader(no photo downloading) (ANOTHER SERVICE USAGE)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
